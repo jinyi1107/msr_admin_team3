@@ -9,3 +9,12 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+.gitignore
+.mvn/
+msr-common/src/
+msr-gateway/src/test/
+msr-hospital/src/main/.DS_Store
+msr-hospital/src/main/java/.DS_Store
+mvnw
+mvnw.cmd
+pom.xml

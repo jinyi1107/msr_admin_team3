@@ -1,0 +1,27 @@
+#配置api网关
+spring:
+  cloud:
+    gateway:
+      routes:
+#msr-case网管情趣
+        - id: msr_hospital_route
+          uri: lb://msr-hospital
+          predicates:
+            - Path=/api/case/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+#oss网关请求
+        - id: third_party_route
+          uri: lb://msr-third-party
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
+#配置网关请求
+        - id: admin_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
