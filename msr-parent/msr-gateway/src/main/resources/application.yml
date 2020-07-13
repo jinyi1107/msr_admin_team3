@@ -28,6 +28,7 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
 
+
         #配置网关请求
         - id: admin_route
           uri: lb://renren-fast
