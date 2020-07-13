@@ -1,18 +1,14 @@
 package com.msr.tq.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -45,7 +41,10 @@ public class Section implements Serializable {
     private String sInfo;
 
     @ApiModelProperty(value = "逻辑删除,0为删除，1则否")
+    @TableLogic
+//    @TableField(value = "is_delete")
     private Integer isDelete;
+
 
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)
