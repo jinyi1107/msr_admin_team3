@@ -3,22 +3,32 @@ spring:
   cloud:
     gateway:
       routes:
-#msr-case网管情趣
+        #msr-case网管情趣
         - id: msr_hospital_route
           uri: lb://msr-hospital
           predicates:
-            - Path=/api/case/**
+            - Path=/api/tq/**
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
 
-#oss网关请求
+        #oss网关请求
         - id: third_party_route
           uri: lb://msr-third-party
           predicates:
             - Path=/api/thirdparty/**
           filters:
             - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
-#配置网关请求
+
+        #配置网关请求
+        - id: msr_hospital_route
+          #负载均衡
+          uri: lb://msr-hospital
+          predicates:
+            - Path=/api/tq/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        #配置网关请求
         - id: admin_route
           uri: lb://renren-fast
           predicates:
