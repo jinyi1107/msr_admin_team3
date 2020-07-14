@@ -12,5 +12,4 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2020-07-10
  */
 public interface MedicalRecordMapper extends BaseMapper<MedicalRecord> {
-
 }

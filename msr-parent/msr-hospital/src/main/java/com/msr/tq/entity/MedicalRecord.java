@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -25,6 +26,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("tq_medical_record")
 @ApiModel(value="MedicalRecord对象", description="病历表")
+@Repository
 public class MedicalRecord implements Serializable {
 
     private static final long serialVersionUID = 1L;
