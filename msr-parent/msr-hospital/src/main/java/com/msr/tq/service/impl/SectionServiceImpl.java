@@ -1,10 +1,14 @@
 package com.msr.tq.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.msr.tq.Query.SectionQuery;
 import com.msr.tq.entity.Section;
 import com.msr.tq.mapper.SectionMapper;
 import com.msr.tq.service.SectionService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 /**
  * <p>
@@ -17,4 +21,34 @@ import org.springframework.stereotype.Service;
 @Service
 public class SectionServiceImpl extends ServiceImpl<SectionMapper, Section> implements SectionService {
 
+    @Override
+    public void pageQuery(Page<Section> pageParam, SectionQuery sectionQuery) {
+        //条件构造器
+        QueryWrapper<Section> queryWrapper = new QueryWrapper<>();
+        queryWrapper.orderByAsc("s_id");//字段不是属性
+
+        if(sectionQuery == null){
+            baseMapper.selectPage(pageParam,queryWrapper);
+            return;
+        }
+
+        String sName = sectionQuery.getSName();
+        String begin = sectionQuery.getBegin();
+        String end = sectionQuery.getEnd();
+
+        if(!StringUtils.isEmpty(sName)){
+            queryWrapper.like("sname",sName);
+        }
+
+        if(!StringUtils.isEmpty(begin)){
+            queryWrapper.ge("gmt_create",begin);
+        }
+
+        if(!StringUtils.isEmpty(end)){
+            queryWrapper.le("gmt_create",end);
+        }
+
+        baseMapper.selectPage(pageParam,queryWrapper);
+
+    }
 }
