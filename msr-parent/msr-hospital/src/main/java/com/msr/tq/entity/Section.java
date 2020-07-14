@@ -45,7 +45,6 @@ public class Section implements Serializable {
 //    @TableField(value = "is_delete")
     private Integer isDelete;
 
-
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)
     private Date gmtCreate;
@@ -53,6 +52,4 @@ public class Section implements Serializable {
     @ApiModelProperty(value = "修改时间")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
-
-
 }
