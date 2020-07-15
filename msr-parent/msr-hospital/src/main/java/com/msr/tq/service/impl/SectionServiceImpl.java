@@ -32,9 +32,14 @@ public class SectionServiceImpl extends ServiceImpl<SectionMapper, Section> impl
             return;
         }
 
+        Integer sId = sectionQuery.getSId();
         String sName = sectionQuery.getSName();
         String begin = sectionQuery.getBegin();
         String end = sectionQuery.getEnd();
+
+        if(!StringUtils.isEmpty(sId)){
+            queryWrapper.like("sid",sId);
+        }
 
         if(!StringUtils.isEmpty(sName)){
             queryWrapper.like("sname",sName);

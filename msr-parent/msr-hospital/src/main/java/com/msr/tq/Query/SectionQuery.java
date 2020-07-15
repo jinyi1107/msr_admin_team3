@@ -14,6 +14,9 @@ import lombok.Data;
 public class SectionQuery {
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value = "科室编号")
+    private Integer sId;
+
     @ApiModelProperty(value = "科室名称,模糊查询")
     private String sName;
 
