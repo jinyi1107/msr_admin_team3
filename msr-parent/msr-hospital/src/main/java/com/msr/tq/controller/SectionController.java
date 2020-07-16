@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.msr.common.constants.ResultCodeEnum;
 import com.msr.common.exception.MSRException;
 import com.msr.common.vo.R;
-import com.msr.tq.Query.SectionQuery;
+import com.msr.tq.query.SectionQuery;
 import com.msr.tq.entity.Section;
 import com.msr.tq.service.SectionService;
 import io.swagger.annotations.Api;
@@ -91,15 +91,15 @@ public class SectionController {
 
     /**
      * 根据ID删除科室
-     * @param ids
+     * @param sIds id数组
      * @return
      */
     @ApiOperation(value = "根据ID删除科室")
     @DeleteMapping("/delete")  //路径传参    localhost:8080/list/1
     public R removeById(
             @ApiParam(name = "ids", value = "科室ID数组", required = true)
-            @RequestBody Long[] ids){
-        boolean flag = sectionService.removeByIds(Arrays.asList(ids));//1
+            @RequestBody Integer[] sIds){
+        boolean flag = sectionService.removeByIds(Arrays.asList(sIds));//1
         return R.ok();
     }
 
@@ -120,16 +120,16 @@ public class SectionController {
 
     /**
      * 根据id查询科室
-     * @param id 科室ID
+     * @param sId 科室ID
      * @return 科室信息
      */
     @ApiOperation(value = "根据ID查询科室")
-    @GetMapping("/info/{id}") //路径传参
+    @GetMapping("/info/{sId}") //路径传参
     public R getById(
-            @ApiParam(name = "id", value = "科室ID", required = true)
-            @PathVariable Integer id){
+            @ApiParam(name = "sId", value = "科室ID", required = true)
+            @PathVariable Integer sId){
 
-        Section section = sectionService.getById(id);
+        Section section = sectionService.getById(sId);
         return R.ok().data("item", section);
     }
 }

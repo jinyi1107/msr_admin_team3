@@ -1,4 +1,4 @@
-package com.msr.tq.Query;
+package com.msr.tq.query;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
