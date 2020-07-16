@@ -3,7 +3,7 @@ package com.msr.tq.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.msr.tq.Query.SectionQuery;
+import com.msr.tq.query.SectionQuery;
 import com.msr.tq.entity.Section;
 import com.msr.tq.mapper.SectionMapper;
 import com.msr.tq.service.SectionService;

@@ -1,7 +1,7 @@
 package com.msr.tq.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.msr.tq.Query.SectionQuery;
+import com.msr.tq.query.SectionQuery;
 import com.msr.tq.entity.Section;
 import com.baomidou.mybatisplus.extension.service.IService;
 
